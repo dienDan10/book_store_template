@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!--    Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -78,16 +80,16 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
-                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    blog
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    <a class="dropdown-item" href="blog.html"> blog</a>
-                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                </div>
-                            </li>
+<!--                            <li class="nav-item dropdown">-->
+<!--                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"-->
+<!--                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                    blog-->
+<!--                                </a>-->
+<!--                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">-->
+<!--                                    <a class="dropdown-item" href="blog.html"> blog</a>-->
+<!--                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>-->
+<!--                                </div>-->
+<!--                            </li>-->
 
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -138,9 +140,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="login_part_form">
                     <div class="login_part_form_iner">
-                        <h3>New To Our Store ? <br>
+                        <h3>New to our Store ? <br>
                             You can register here</h3>
-                        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                        <form class="row contact_form myform" action="#" method="post" novalidate="novalidate">
                             <div class="col-md-12 form-group p_star mb-4">
                                 <input type="text" class="form-control" id="name" name="name" value=""
                                        placeholder="Name">
@@ -160,15 +162,14 @@
                                 <div class="text-danger font-italic msg"></div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <div class="creat_account d-flex align-items-center">
-
+                                <div class="creat_account d-flex align-items-center mb-3">
                                         <input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">See password</label>
-
-
-
                                 </div>
-
+                                <div>
+                                    <div class="g-recaptcha" data-sitekey="6LePUuwpAAAAANteno4UNkHQ-IWcK6KwiGLH3QAD"></div>
+                                    <div class="fst-italic text-danger captcha-msg" ></div>
+                                </div>
                                 <button type="submit" value="submit" class="btn_3 btn-register" disabled>
                                     Register
                                 </button>
@@ -300,6 +301,26 @@
     password.onblur = function() {
         constraint.textContent = '';
     };
+
+    // implement captcha
+    const form = document.querySelector('.myform');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const isValid = validateRecaptcha();
+        if (isValid) {
+            form.submit();
+        } else {
+
+        }
+    })
+    function validateRecaptcha() {
+        const response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            document.querySelector('.captcha-msg').textContent = "Please finish the captcha";
+            return false;
+        }
+        return true;
+    }
 
 </script>
 
