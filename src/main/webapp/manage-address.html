@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>pillloMart</title>
+    <title>Verification</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -24,6 +24,14 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!--    Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <style>
+        .hover-pointer:hover {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -76,16 +84,16 @@
                                 </div>
                             </li>
 
-<!--                            <li class="nav-item dropdown">-->
-<!--                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"-->
-<!--                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                                    blog-->
-<!--                                </a>-->
-<!--                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">-->
-<!--                                    <a class="dropdown-item" href="blog.html"> blog</a>-->
-<!--                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>-->
-<!--                                </div>-->
-<!--                            </li>-->
+                            <!--                            <li class="nav-item dropdown">-->
+                            <!--                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"-->
+                            <!--                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                            <!--                                    blog-->
+                            <!--                                </a>-->
+                            <!--                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">-->
+                            <!--                                    <a class="dropdown-item" href="blog.html"> blog</a>-->
+                            <!--                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>-->
+                            <!--                                </div>-->
+                            <!--                            </li>-->
 
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -104,7 +112,7 @@
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
-            <form class="d-flex justify-content-between search-inner">
+            <form class="d-flex justify-content-between search-inner" action="/search" method="POST">
                 <input type="text" class="form-control" id="search_input" placeholder="Search Here">
                 <button type="submit" class="btn"></button>
                 <span class="ti-close" id="close_search" title="Close Search"></span>
@@ -114,175 +122,134 @@
 </header>
 <!-- Header part end-->
 
-<!-- breadcrumb part start-->
-<section class="breadcrumb_part">
+
+<!--================login_part Area =================-->
+<section class="login_part">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb_iner">
-                    <h2>checkout</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12 mx-auto">
+                <div class="login_part_form w-100">
+                    <h4 class="mb-3">Sổ địa chỉ</h4>
+                    <div class="addresses" style="font-family: 'Inter', 'Helvetica Neue', sans-serif">
+                        <div class="new mb-3">
+                            <a href="#" class="d-inline-block w-100 py-3 d-flex justify-content-center align-items-center"
+                               style="background-color: #f4edf278; color: #4B3049; font-size: 16px">
+                                <i class="fa-solid fa-plus mr-3"></i>
+                                <span>Thêm địa chỉ mới</span>
+                            </a>
+                        </div>
+                        <div class="address p-3 d-flex flex-row mb-3" style="background-color: #f4edf278; color: #4B3049">
+                            <div class="info flex-fill">
+                                <div class="receiver-name">
+                                    <span class="text-uppercase">TRẦN ĐÌNH TÚ</span>
+                                    <span style="font-size: 14px" class="ml-4">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    Địa chỉ mặc định
+                                </span>
+                                </div>
+                                <div class="address">
+                                    <span>Địa chỉ:</span>
+                                    Trọ Thành Thính, Thôn Linh Sơn, Xã Bình Yên, Huyện Thạch Thất, Hà Nội
+                                </div>
+                                <div class="phone">
+                                    <span>Điện thoại: </span>
+                                    0977988053
+                                </div>
+                            </div>
+                            <h5 class="align-self-center mr-2 mb-0 hover-pointer" data-toggle="modal" data-target="#change-address-1">Chỉnh sửa</h5>
+                            <div style="color: #4B3049" class="align-self-center ml-2 mr-2 hover-pointer">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="change-address-1" tabindex="-1" aria-labelledby="change-address-modal" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content rounded-0">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Chỉnh sửa địa chỉ</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="" method="POST">
+                                            <div class="modal-body">
+
+                                                <table class="w-100">
+                                                    <tbody>
+                                                    <tr class="mb-3">
+                                                        <td><p>Số điện thoại:</p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    <tr class="mb-3">
+                                                        <td><p>Người nhận:</p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    <tr class="mb-3">
+                                                        <td><p>Tỉnh/Thành phố: </p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    <tr class="mb-3">
+                                                        <td><p>Quận huyện: </p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    <tr class="mb-3">
+                                                        <td><p>Phường xã:</p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    <tr class="mb-3">
+                                                        <td><p>Thôn xóm:</p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    <tr class="mb-3">
+                                                        <td><p>Chi tiết:</p></td>
+                                                        <td><input type="text" class="form-control" name="receiver"></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="mt-4">
+                                                    <input type="checkbox" name="setAsDefault" value="1" id="setAsDefault">
+                                                    <label for="setAsDefault" class="ml-3">
+                                                        <p>Đặt làm mặc định</p>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn_1">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="address p-3 d-flex flex-row mb-3" style="background-color: #f4edf278; color: #4B3049">
+                            <div class="info flex-fill">
+                                <div class="receiver-name">
+                                    <span class="text-uppercase">Tran Dinh Tu</span>
+                                <span style="font-size: 14px" class="ml-4">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    Địa chỉ mặc định
+                                </span>
+                                </div>
+                                <div class="address">
+                                    <span>Địa chỉ:</span>
+                                    Trọ Thành Thính, Thôn Linh Sơn, Xã Bình Yên, Huyện Thạch Thất, Hà Nội
+                                </div>
+                                <div class="phone">
+                                    <span>Điện thoại: </span>
+                                    0977988053
+                                </div>
+                            </div>
+                            <h5 class="align-self-center mr-2 mb-0 hover-pointer">Chỉnh sửa</h5>
+                            <div style="color: #4B3049" class="align-self-center ml-2 mr-2 hover-pointer">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- breadcrumb part end-->
-
-<!--================Checkout Area =================-->
-<section class="checkout_area section_padding">
-    <div class="container">
-        <div class="billing_details">
-            <form action="" method="POST">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h3>Xác Nhận Địa Chỉ</h3>
-                        <div class="address p-3 d-flex flex-row mb-3" style="background-color: #f4edf278; color: #4B3049">
-                            <div class="mr-3 align-self-center">
-                                <input type="radio" name="addressId" value="addressId" checked>
-                            </div>
-                            <div class="info flex-fill">
-                                <div class="receiver-name">
-                                    <span class="text-uppercase">Tran Dinh Tu</span>
-                                </div>
-                                <div class="address">
-                                    <span>Địa chỉ:</span>
-                                    Trọ Thành Thính, Thôn Linh Sơn, Xã Bình Yên, Huyện Thạch Thất, Hà Nội
-                                </div>
-                                <div class="phone">
-                                    <span>Điện thoại: </span>
-                                    0977988053
-                                </div>
-                            </div>
-                        </div>
-                        <div class="address p-3 d-flex flex-row mb-3" style="background-color: #f4edf278; color: #4B3049">
-                            <div class="mr-3 align-self-center">
-                                <input type="radio" name="addressId" value="addressId">
-                            </div>
-                            <div class="info flex-fill">
-                                <div class="receiver-name">
-                                    <span class="text-uppercase">Tran Dinh Tu</span>
-                                </div>
-                                <div class="address">
-                                    <span>Địa chỉ:</span>
-                                    Trọ Thành Thính, Thôn Linh Sơn, Xã Bình Yên, Huyện Thạch Thất, Hà Nội
-                                </div>
-                                <div class="phone">
-                                    <span>Điện thoại: </span>
-                                    0977988053
-                                </div>
-                            </div>
-                        </div>
-                        <div class="address p-3 d-flex flex-row mb-3" style="background-color: #f4edf278; color: #4B3049">
-                            <div class="mr-3 align-self-center">
-                                <input type="radio" name="addressId" value="addressId">
-                            </div>
-                            <div class="info flex-fill">
-                                <div class="receiver-name">
-                                    <span class="text-uppercase">Tran Dinh Tu</span>
-                                </div>
-                                <div class="address">
-                                    <span>Địa chỉ:</span>
-                                    Trọ Thành Thính, Thôn Linh Sơn, Xã Bình Yên, Huyện Thạch Thất, Hà Nội
-                                </div>
-                                <div class="phone">
-                                    <span>Điện thoại: </span>
-                                    0977988053
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-
-                        <div class="order_box">
-                            <h2>Đơn hàng của bạn</h2>
-                            <ul class="list" style="font-family: 'Inter', 'Helvetica Neue', sans-serif">
-                                <li>
-                                    <a href="#" class="disabled">Sản phẩm
-                                        <span>Tổng</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex mb-2 disabled">
-                                    <span class="flex-fill" style="line-height: 20px">
-                                         Điều kỳ diệu ở tiệm tạp hóa Namiya, Điều kỳ diệu ở tiệm tạp hóa Namiya
-                                    </span>
-                                        <span class="middle">x 02</span>
-                                        <span class="ml-4">$720.00</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex mb-2 disabled">
-                                    <span class="flex-fill" style="line-height: 20px">
-                                         Điều kỳ diệu ở tiệm tạp hóa Namiya, Điều kỳ diệu ở tiệm tạp hóa Namiya
-                                    </span>
-                                        <span class="middle">x 02</span>
-                                        <span class="ml-4">$720.00</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex mb-2 disabled">
-                                    <span class="flex-fill" style="line-height: 20px">
-                                         Điều kỳ diệu ở tiệm tạp hóa Namiya, Điều kỳ diệu ở tiệm tạp hóa Namiya
-                                    </span>
-                                        <span class="middle">x 02</span>
-                                        <span class="ml-4">$720.00</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="list list_2" style="font-family: 'Inter', 'Helvetica Neue', sans-serif">
-                                <li>
-                                    <a href="#" class="disabled">Shipping
-                                        <span>Cước phí: 0đ</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="disabled">Tổng
-                                        <span>$2210.00</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="payment_item">
-                                <div class="radion_btn">
-                                    <input type="radio" id="f-option5" name="payment-method" value="orderReceived" checked/>
-                                    <label for="f-option5" style="font-family: 'Inter', 'Helvetica Neue', sans-serif">
-                                        <span class="d-inline-block" style="margin-top: 3px;">Thanh toán khi nhận hàng</span>
-                                    </label>
-                                    <div class="check"></div>
-                                </div>
-                                <p>
-                                    Thanh toán sau khi đã nhận được và kiểm tra đơn hàng, thông qua người
-                                    trung gian là nhân viên giao hàng.
-                                </p>
-                            </div>
-                            <div class="payment_item">
-                                <div class="radion_btn">
-                                    <input type="radio" id="f-option6" name="payment-method" value="vnpay"/>
-                                    <label for="f-option6" style="font-family: 'Inter', 'Helvetica Neue', sans-serif">
-                                        <span class="d-inline-block" style="margin-top: 3px;">VNpay</span>
-                                    </label>
-                                    <img src="img/product/single-product/card.jpg" alt="" />
-                                    <div class="check"></div>
-                                </div>
-                                <p>
-                                    Thanh toán thông qua cổng giao dịch của VNPAY dưới nhiều hình
-                                    thức như thẻ nội địa, thẻ quốc tế, quét mã QR.
-                                </p>
-                            </div>
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option4" name="selector" required/>
-                                <label for="f-option4">I’ve read and accept the </label>
-                                <a href="#" onclick="return false">terms & conditions*</a>
-                            </div>
-                            <button class="btn_3 col-12" href="#">Thanh Toán</button>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
-<!--================End Checkout Area =================-->
+<!--================login_part end =================-->
 
 <!--::footer_part start::-->
 <footer class="footer_part">
@@ -336,6 +303,7 @@
 </footer>
 <!--::footer_part end::-->
 
+
 <!-- jquery plugins here-->
 <script src="js/jquery-1.12.1.min.js"></script>
 <!-- popper js -->
@@ -349,7 +317,6 @@
 <!-- swiper js -->
 <script src="js/mixitup.min.js"></script>
 <!-- particles js -->
-<script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.nice-select.min.js"></script>
 <!-- slick js -->
 <script src="js/slick.min.js"></script>
@@ -362,15 +329,8 @@
 <script src="js/mail-script.js"></script>
 <!-- custom js -->
 <script src="js/custom.js"></script>
-<script>
-    const items = document.querySelectorAll('.disabled');
-    items.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            return false;
-        })
-    });
-</script>
+
+
 </body>
 
 </html>
